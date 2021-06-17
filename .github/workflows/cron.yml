@@ -1,0 +1,23 @@
+name: Rebuild project on schedule
+
+on:
+  push:
+  schedule:
+    - cron: '0 */4 * * *'
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: site-production
+          folder: public
