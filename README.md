@@ -1,4 +1,4 @@
-# justai_landing
+# JUSTAI survey
 This is the repo for the JUST-AI survey landing page
 
 Install dependencies.
