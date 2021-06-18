@@ -50,7 +50,7 @@ if (!(email || id)) {
 const init = async () => {
   // get latest count
   const { error, count } = await api
-    .from('data')
+    .from('count_without_q3_no')
     .select('id', { count: 'exact' })
 
   // subscribe on latest survey answers
@@ -172,7 +172,7 @@ const triggerGeneratingJson = async (data, cnt) => {
   let count = cnt
   if (!count) {
     const { error: err1, count: countNew } = await api
-      .from('data')
+      .from('count_without_q3_no')
       .select('id', { count: 'exact' })
     if (err1) {
       console.error('API-ERROR:\n', err1)
