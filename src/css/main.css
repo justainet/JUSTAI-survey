@@ -222,7 +222,7 @@ textarea {
 .error-msg{
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 0;
   margin-left: -50%;
   height: 100%;
   width: 100%;
@@ -240,6 +240,10 @@ textarea {
   line-height: 31px;
   color: #FFCC9A;
   font-family: 'IBM Plex Mono', monospace;
+}
+
+.error-msg-content{
+  margin-top: 25%;
 }
 
 .spin{
