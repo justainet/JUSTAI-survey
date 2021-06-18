@@ -92,7 +92,7 @@ const init = async () => {
       ? false
       : await fetch('./data/data.json')
           .then((it) => it.json())
-          .catch((it) => 'ignore')
+          .catch((it) => false)
 
   if (!oldData || oldData.children[2].responses !== count) {
     const dataP =
@@ -112,7 +112,7 @@ const init = async () => {
       if (
         err.message === 'JSON object requested, multiple (or no) rows returned'
       ) {
-        // TODO show pretty that we did not find user yet, but viz will appear when we receive response
+        // show pretty that we did not find user yet, but viz will appear when we receive response
         // it could be alse that we cannot find email nor id
         const docErrs = document.getElementsByClassName('error-msg')
         for (const doc of docErrs) {
