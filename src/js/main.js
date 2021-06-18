@@ -259,6 +259,31 @@ const triggerGeneratingJson = async (data, cnt) => {
   }
 }
 
+if (!(email || id)) {
+  document.getElementById(
+    'text-intro-1sec'
+  ).innerText = `Using the information shared, we have created visual representations of research interests and perspectives in the field of AI and data ethics.`
+  document.getElementById(
+    'text-2section-your'
+  ).innerText = `Here is a different visualization of the latest response among all of the responses to the survey thus far. Rather than viewing these visualizations as static networks showing links between nodes, let’s interpret the response as part of a social process that defines the research we conduct in the field of data and AI ethics. By sharing perspectives, one position in this network will change in relation to other perspectives.`
+  document.getElementById('text-your-headline').innerText = 'Latest'
+  const docYours = document.getElementsByClassName('text-your')
+  for (const el of docYours) {
+    el.innerText = 'the latest'
+  }
+
+  const docHideShowEl = document.getElementsByClassName('text-hide-section')
+  for (const el of docHideShowEl) {
+    el.innerText = 'the most recent response.'
+  }
+
+  const docDelete = document.getElementsByClassName('text-delete')
+  for (const el of docDelete) {
+    el.innerText = ''
+  }
+  //
+}
+
 init().catch(console.error)
 
 if (window.innerWidth < 768) {
