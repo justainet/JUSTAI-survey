@@ -5,13 +5,14 @@ module.exports = function (config) {
   // config.addPassthroughCopy('./src/fonts')
   config.addPassthroughCopy('./src/img')
   config.addPassthroughCopy('./src/favicon.ico')
-  config.addPassthroughCopy('./src/icon.png')
-  config.addPassthroughCopy('./src/tile.png')
-  config.addPassthroughCopy('./src/tile-wide.png')
+  config.addPassthroughCopy('./src/android-chrome-192x192.png')
+  config.addPassthroughCopy('./src/android-chrome-512x512.png')
+  config.addPassthroughCopy('./src/apple-touch-icon.png')
+  config.addPassthroughCopy('./src/favicon-16x16.png')
+  config.addPassthroughCopy('./src/favicon-32x32.png')
   config.addPassthroughCopy('./src/manifest.json')
   config.addPassthroughCopy('./src/robots.txt')
   config.addPassthroughCopy('./src/site.webmanifest')
-  config.addPassthroughCopy('./src/browserconfig.xml')
 
   // 404
   config.setBrowserSyncConfig({
