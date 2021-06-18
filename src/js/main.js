@@ -95,6 +95,11 @@ const init = async () => {
           .catch((it) => false)
 
   if (!oldData || oldData.children[2].responses !== count) {
+    if (!oldData && !(email || id)) {
+      INITGRAPH = true // in case we don't have oldData and we are waiting on root,
+      // so websoket can initialize
+      // the next one will crash anyway
+    }
     const dataP =
       email || id // check if we need to narrow down to email/id
         ? email
