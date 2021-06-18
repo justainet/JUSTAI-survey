@@ -53,8 +53,22 @@ const init = async () => {
     .from('data')
     .select('id', { count: 'exact' })
 
-  // subscribe on latest survey answers
+  // get pre-generated json
+  // if we have email or id return nothing, so we force download from API
+  const oldData =
+    email || id
+      ? false
+      : await fetch('./data/data.json')
+          .then((it) => it.json())
+          .catch((it) => false)
 
+  if (!oldData && !(email || id)) {
+    INITGRAPH = true // in case we don't have oldData and we are waiting on root,
+    // so websoket can initialize
+    // the next one will crash anyway
+  }
+
+  // subscribe on latest survey answers
   const subHandler = (payload) => {
     const docErrs = document.getElementsByClassName('error-msg')
     for (const doc of docErrs) {
@@ -85,21 +99,7 @@ const init = async () => {
             .subscribe()
       : api.from('data').on('INSERT', subHandler).subscribe()
 
-  // get pre-generated json
-  // if we have email or id return nothing, so we force download from API
-  const oldData =
-    email || id
-      ? false
-      : await fetch('./data/data.json')
-          .then((it) => it.json())
-          .catch((it) => false)
-
   if (!oldData || oldData.children[2].responses !== count) {
-    if (!oldData && !(email || id)) {
-      INITGRAPH = true // in case we don't have oldData and we are waiting on root,
-      // so websoket can initialize
-      // the next one will crash anyway
-    }
     const dataP =
       email || id // check if we need to narrow down to email/id
         ? email
