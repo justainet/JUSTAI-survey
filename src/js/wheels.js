@@ -537,8 +537,7 @@ export function wheel(data, init) {
   if (maxTotal > 0) {
     if (maxTheme > maxId) {
       barScale.domain([0, maxTheme])
-    }
-    if (maxId > maxTheme) {
+    } else {
       barScale.domain([0, maxId])
     }
     // barScale.domain([0, maxTotal])
