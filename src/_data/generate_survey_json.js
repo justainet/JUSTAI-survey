@@ -30,7 +30,7 @@ const main = async () => {
     .limit(1)
     .single()
   const countP = api
-    .from('count_without_q3_no')
+    .from('data')
     .select('id', { count: 'exact' })
   const q70P = api.from('group_by_70').select()
   const q71P = api.from('group_by_71').select()
