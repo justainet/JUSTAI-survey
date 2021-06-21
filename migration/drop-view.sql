@@ -35,4 +35,11 @@ DROP VIEW group_by_130;
 DROP VIEW group_by_53 ;
 DROP VIEW group_by_74 ;
 
-DROP VIEW count_without_q3_no ;
+DROP VIEW group_by_30_133_149 ;
+DROP VIEW group_by_33_139_155 ;
+DROP VIEW group_by_37_143_159 ;
+DROP VIEW group_by_51_144_160 ;
+DROP VIEW group_by_36_142_158 ;
+
+DROP VIEW group_by_35_141_157 ;
+
