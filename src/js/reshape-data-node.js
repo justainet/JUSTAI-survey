@@ -27,13 +27,9 @@ const calculateValuesArray = (initValues) => (q) => {
   }
 }
 
-// calculateValuesMultiple :: Object -> (Array,Array,Array) -> Object
-const calculateValuesMultiple = (initValues) => (q, q2, q3) => {
-  if (
-    (q || []).length === 0 &&
-    (q2 || []).length === 0 &&
-    (q3 || []).length === 0
-  )
+// calculateValuesMultiple :: Object -> (Array,Array) -> Object
+const calculateValuesMultiple = (initValues) => (q, q2) => {
+  if ((q || []).length === 0 && (q2 || []).length === 0)
     return Object.keys(initValues).reduce(
       (last_obj, key) => ({ ...last_obj, [key]: -1 }), // -1 on all values if skipped question
       {}
@@ -53,16 +49,6 @@ const calculateValuesMultiple = (initValues) => (q, q2, q3) => {
             [key]: parseInt(`${latestChoice[key]}2`, 10),
           }
         else latestChoice = { ...latestChoice, [key]: 2 }
-      })
-    }
-    if (q3.length > 0) {
-      q3.map((key) => {
-        if (latestChoice.hasOwnProperty(key))
-          latestChoice = {
-            ...latestChoice,
-            [key]: parseInt(`${latestChoice[key]}3`, 10),
-          }
-        else latestChoice = { ...latestChoice, [key]: 3 }
       })
     }
 
@@ -483,11 +469,7 @@ function getTopics(latest, data) {
     other: 0,
   }
 
-  const values = calculateValuesMultiple(initVal)(
-    latest.q30,
-    latest.q133,
-    latest.q149
-  )
+  const values = calculateValuesMultiple(initVal)(latest.q30, latest.q133)
 
   const template = {
     q: 'topic',
@@ -548,11 +530,7 @@ function getDomain(latest, data) {
     'N/A': 0,
   }
 
-  const values = calculateValuesMultiple(initVal)(
-    latest.q33,
-    latest.q139,
-    latest.q155
-  )
+  const values = calculateValuesMultiple(initVal)(latest.q33, latest.q139)
 
   const template = {
     q: 'domain',
@@ -613,11 +591,7 @@ function getOutput(latest, data) {
     '#other': 0,
   }
 
-  const values = calculateValuesMultiple(initVal)(
-    latest.q37,
-    latest.q143,
-    latest.q159
-  )
+  const values = calculateValuesMultiple(initVal)(latest.q37, latest.q143)
 
   const template = {
     q: 'output',
@@ -676,11 +650,7 @@ function getAudience(latest, data) {
     '#other': 0,
   }
 
-  const values = calculateValuesMultiple(initVal)(
-    latest.q51,
-    latest.q144,
-    latest.q160
-  )
+  const values = calculateValuesMultiple(initVal)(latest.q51, latest.q144)
 
   const template = {
     q: 'audience',
@@ -797,11 +767,7 @@ function getCollabField(latest, data) {
     'Others:': 0,
   }
 
-  const values = calculateValuesMultiple(initVal)(
-    latest.q36,
-    latest.q142,
-    latest.q158
-  )
+  const values = calculateValuesMultiple(initVal)(latest.q36, latest.q142)
 
   const template = {
     q: 'collab field?',
