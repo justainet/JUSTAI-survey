@@ -108,23 +108,26 @@ export function getSelfEthicist(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -155,23 +158,26 @@ export function getOthersEthicist(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -202,23 +208,26 @@ export function getFunding(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -298,23 +307,26 @@ export function getYearsInField(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -366,23 +378,26 @@ export function getEducation(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -423,23 +438,26 @@ export function getCareer(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -477,23 +495,26 @@ export function getTopics(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -538,23 +559,26 @@ export function getDomain(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -599,23 +623,26 @@ export function getOutput(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -658,23 +685,26 @@ export function getAudience(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -714,23 +744,26 @@ export function getCollabType(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
@@ -775,23 +808,26 @@ export function getCollabField(latest, data) {
 
   let needDefault = Object.keys(values)
 
-  const generated = data.map(({ answer, count }) => {
-    const val = values[answer]
-    if (typeof val === 'undefined') {
-      throw new Error(
-        `Missing value type, make sure to add all possible values. value searched: (${answer})`
-      )
-    }
-    // removing values which are taken from db
-    needDefault = needDefault.filter((it) => it !== answer)
+  const generated = data
+    .map(({ answer, count }) => {
+      const val = values[answer]
+      if (typeof val === 'undefined') {
+        // throw new Error(
+        //   `Missing value type, make sure to add all possible values. value searched: (${answer})`
+        // )
+        return null
+      }
+      // removing values which are taken from db
+      needDefault = needDefault.filter((it) => it !== answer)
 
-    return {
-      ...template,
-      value: val,
-      name: answer,
-      total: count,
-    }
-  })
+      return {
+        ...template,
+        value: val,
+        name: answer,
+        total: count,
+      }
+    })
+    .filter((it) => it)
 
   // In the situation where there are not even 1 answer for certain option,
   // we need to add default for this option which is not in db
