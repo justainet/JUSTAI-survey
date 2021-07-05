@@ -40,6 +40,14 @@ const getID = () => {
   else return false
 }
 
+const genAnonymLink = (data) => {
+  const anonDoc = document.getElementById('anonym-link')
+  anonDoc.firstElementChild.href = `${
+    location.pathname
+  }?id=${encodeURIComponent(data.response_id)}`
+  anonDoc.classList.remove('hidden')
+}
+
 const email = getEmail()
 const id = getID()
 
@@ -60,6 +68,8 @@ const init = async () => {
     for (const doc of docErrs) {
       doc.hidden = true
     }
+    genAnonymLink(payload.new)
+
     triggerGeneratingJson(payload.new)
       .then((data) => {
         dendro(data, INITGRAPH)
@@ -113,6 +123,8 @@ const init = async () => {
             .single() // pull the most receant
 
     const { data: data, error: err } = await dataP
+
+    genAnonymLink(data)
     if (err) {
       if (
         err.message === 'JSON object requested, multiple (or no) rows returned'
@@ -131,6 +143,7 @@ const init = async () => {
       console.error(err)
       return
     }
+
     triggerGeneratingJson(data)
       .then((data) => {
         dendro(data, INITGRAPH)
@@ -281,7 +294,6 @@ if (!(email || id)) {
   for (const el of docDelete) {
     el.innerText = ''
   }
-  //
 }
 
 init().catch(console.error)

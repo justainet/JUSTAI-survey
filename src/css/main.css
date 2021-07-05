@@ -469,3 +469,11 @@ textarea {
     page-break-after: avoid;
   }
 }
+
+.text-anonym {
+  font-size: 1.5em;
+}
+
+.text-anonym:hover a {
+  text-decoration: none;
+}
