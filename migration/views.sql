@@ -40,14 +40,13 @@ CREATE VIEW group_by_36_142_158 AS SELECT jsonb_array_elements(comb.q) AS answer
 
 CREATE VIEW group_by_35_141_157 AS SELECT comb.q as answer, count(q) from ((SELECT data.q35 as q from data where data.q35 <> '') UNION ALL  (SELECT data.q141 as q from data where data.q141 <> '' ) UNION all  (SELECT data.q157 as q from data where data.q157 <> '' )) as comb group by q;
 
-
-
 CREATE FUNCTION floatToIntIfNumber() RETURNS trigger AS $that$
     BEGIN
-        NEW.q7 := floor(NEW.q7::numeric)::text;
+        IF NEW.q7 <> '' and NEW.q7 <> '50+' and NEW.q7 is not null THEN
+          NEW.q7 := floor(NEW.q7::numeric)::text;
+	    END IF;
         RETURN NEW;
     END;
 $that$ LANGUAGE plpgsql;
 
-CREATE TRIGGER q7FloatToIntTrigger BEFORE INSERT
-ON data  FOR EACH ROW EXECUTE FUNCTION floatToIntIfNumber();
+CREATE TRIGGER q7FloatToIntTrigger BEFORE INSERT ON data  FOR EACH ROW EXECUTE FUNCTION floatToIntIfNumber();

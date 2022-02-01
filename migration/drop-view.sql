@@ -43,8 +43,5 @@ DROP VIEW group_by_36_142_158 ;
 
 DROP VIEW group_by_35_141_157 ;
 
-
-
-DROP function floatToIntIfNumber;
-DROP function floatToIntIfNumber;
-DROP trigger q7FloatToIntTrigger;
+DROP TRIGGER IF EXISTS q7FloatToIntTrigger on data;
+drop function floatToIntIfNumber;
