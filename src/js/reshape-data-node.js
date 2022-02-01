@@ -338,7 +338,16 @@ function getYearsInField(latest, data) {
     total: 0,
   }))
 
-  return [...generated, ...defaultOptions]
+  const orderedList = [...generated, ...defaultOptions].sort((a, b) =>
+    a.name === '50+'
+      ? 1
+      : b.name === '50+'
+      ? -1
+      : parseInt(a.name) > parseInt(b.name)
+      ? 1
+      : -1
+  )
+  return orderedList
 }
 
 // q9
